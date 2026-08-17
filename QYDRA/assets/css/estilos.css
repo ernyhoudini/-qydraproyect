@@ -1,0 +1,246 @@
+:root {
+    --fondo: #050a12;
+    --sidebar: #09111e;
+    --panel: #0c1423;
+    --panel-secundario: #101a2b;
+    --borde: #1e2b3d;
+    --cyan: #00e0e6;
+    --texto: #f4f6fa;
+    --texto-secundario: #96a5bb;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: "Consolas", "Courier New", monospace;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Barra lateral */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 245px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--sidebar);
+    border-right: 1px solid var(--borde);
+}
+
+.sidebar-logo {
+    height: 82px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 18px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.logo-icono {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 4px;
+    background: var(--cyan);
+    color: var(--fondo);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo-texto {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 12px;
+}
+
+.menu-enlace {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 42px;
+    padding: 0 12px;
+    color: var(--texto-secundario);
+    border-left: 2px solid transparent;
+    transition: 0.2s ease;
+}
+
+.menu-enlace:hover {
+    color: var(--texto);
+    background: var(--panel-secundario);
+}
+
+.menu-enlace.activo {
+    color: var(--texto);
+    background: var(--panel-secundario);
+    border-left-color: var(--cyan);
+}
+
+.menu-icono {
+    width: 20px;
+    color: var(--cyan);
+    text-align: center;
+    font-size: 18px;
+}
+
+.sidebar-estado {
+    margin-top: auto;
+    padding: 20px;
+    color: var(--texto-secundario);
+    border-top: 1px solid var(--borde);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.estado-punto {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 10px var(--cyan);
+}
+
+/* Contenido principal */
+
+.contenido-principal {
+    width: calc(100% - 245px);
+    min-height: 100vh;
+    margin-left: 245px;
+    padding: 38px 48px;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+}
+
+.encabezado-pagina {
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.encabezado-pagina h1 {
+    margin-bottom: 8px;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.encabezado-pagina p {
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+@media (max-width: 800px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .app {
+        display: block;
+    }
+
+    .sidebar-estado {
+        display: none;
+    }
+
+    .contenido-principal {
+        width: 100%;
+        margin-left: 0;
+        padding: 25px 18px;
+    }
+}
+/* Tarjetas del dashboard */
+
+.tarjetas-dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.tarjeta-dashboard {
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    padding: 22px;
+    min-height: 130px;
+    transition: 0.2s ease;
+}
+
+.tarjeta-dashboard:hover {
+    border-color: var(--cyan);
+    transform: translateY(-2px);
+}
+
+.tarjeta-titulo {
+    color: var(--texto-secundario);
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.tarjeta-numero {
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--texto);
+}
+
+.tarjeta-detalle {
+    margin-top: 8px;
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.estado-online {
+    color: var(--cyan);
+}
+
+@media (max-width: 1000px) {
+    .tarjetas-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .tarjetas-dashboard {
+        grid-template-columns: 1fr;
+    }
+}

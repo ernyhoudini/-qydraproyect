@@ -1,0 +1,126 @@
+/* =========================================
+   FORMULARIOS QYDRA
+   ========================================= */
+
+.formulario-experimento {
+    width: 100%;
+    max-width: 850px;
+    margin-top: 30px;
+    padding: 30px;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 22px;
+}
+
+.campo label {
+    color: var(--texto);
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+    width: 100%;
+    padding: 13px 14px;
+    background: var(--panel-secundario);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    outline: none;
+    border-radius: 0;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+    color: var(--texto-secundario);
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.campo select:focus {
+    border-color: var(--cyan);
+    box-shadow: 0 0 0 1px var(--cyan);
+}
+
+.campo textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.campo select {
+    cursor: pointer;
+}
+
+.fila-formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.acciones-formulario {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 20px;
+    margin-top: 5px;
+    border-top: 1px solid var(--borde);
+}
+
+.boton-principal,
+.boton-secundario {
+    display: inline-block;
+    padding: 12px 20px;
+    border: 1px solid var(--borde);
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.boton-principal {
+    background: var(--cyan);
+    color: var(--fondo);
+    border-color: var(--cyan);
+    font-weight: bold;
+}
+
+.boton-principal:hover {
+    opacity: 0.85;
+}
+
+.boton-secundario {
+    background: transparent;
+    color: var(--texto-secundario);
+}
+
+.boton-secundario:hover {
+    color: var(--texto);
+    border-color: var(--texto-secundario);
+}
+
+@media (max-width: 700px) {
+    .formulario-experimento {
+        padding: 20px;
+    }
+
+    .fila-formulario {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .acciones-formulario {
+        flex-direction: column;
+    }
+
+    .boton-principal,
+    .boton-secundario {
+        width: 100%;
+        text-align: center;
+    }
+}
